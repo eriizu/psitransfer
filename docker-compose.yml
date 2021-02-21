@@ -1,0 +1,14 @@
+services:
+  psi:
+    build: .
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.psi.rule=Host(`transfer.potate.space`)"
+      - "traefik.http.routers.psi.entrypoints=websecure"
+      - "traefik.http.routers.psi.tls.certresolver=le"
+      # - "traefik.http.services.psi.loadbalancer.server.port=3000"
+    volumes:
+      - transfered_files:/data
+
+volumes:
+  transfered_files:
