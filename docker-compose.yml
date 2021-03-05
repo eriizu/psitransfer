@@ -11,8 +11,7 @@ services:
       - transfered_files:/data
 
     restart: always
-    environment:
-      - PSITRANSFER_ADMIN_PASS=ours en peluche
+    env_file: conf.env
     healthcheck:
       test: ["CMD", "wget", "-O", "/dev/null", "-q", "http://localhost:3000"]
 
